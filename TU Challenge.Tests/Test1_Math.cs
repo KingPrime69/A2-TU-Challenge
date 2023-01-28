@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TU_Challenge
+/*namespace TU_Challenge
 {
     /// <summary>
     /// Echauffement avec des fonctions mathématiques
@@ -227,3 +227,4 @@ namespace TU_Challenge
 
     }
 }
+*/
