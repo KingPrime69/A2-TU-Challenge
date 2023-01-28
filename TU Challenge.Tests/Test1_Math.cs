@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*namespace TU_Challenge
+namespace TU_Challenge
 {
     /// <summary>
     /// Echauffement avec des fonctions mathématiques
@@ -135,18 +135,18 @@ using System.Threading.Tasks;
         }
 
 
-        //[Test]
-        //[TestCase(0, 1, 1)]
-        //[TestCase(0, 10, 1)]
-        //[TestCase(20, 10, -1)]
-        //[TestCase(-20, 10, 1)]
-        //[TestCase(10, 0, -1)]
-        //[TestCase(20, 20, 0)]
-        //public void IsInOrder(int a, int b, int expected)
-        //{
-        //    var result = MyMathImplementation.IsInOrder(a, b);
-        //    Assert.That(result, Is.EqualTo(expected));
-        //}
+        [Test]
+        [TestCase(0, 1, true)]
+        [TestCase(0, 10, true)]
+        [TestCase(20, 10, false)]
+        [TestCase(-20, 10, true)]
+        [TestCase(10, 0, false)]
+        [TestCase(20, 20, true)]
+        public void IsInOrder(int a, int b, bool expected)
+        {
+            var result = MyMathImplementation.IsInOrder(a, b);
+            Assert.That(result, Is.EqualTo(expected));
+        }
 
         [Test]
         public void TestIsInOrder()
@@ -180,19 +180,19 @@ using System.Threading.Tasks;
         // Votre premier algorithme de tri à implémenter.
         // N'hésitez pas à me demander de l'aide sur la partie théorie.
         // Interdiction d'appeller Sort sur la liste.
-        //[Test]
-        //public void Sort()
-        //{
-        //    var toSort = new List<int>() { 12, 0, -1, 123, 45, 90, -123 };
+        [Test]
+        public void Sort()
+        {
+            var toSort = new List<int>() { 12, 0, -1, 123, 45, 90, -123 };
 
-        //    var result = MyMathImplementation.Sort(toSort);
+            List<int> result = MyMathImplementation.Sort(toSort);
 
-        //    for (int i = 0; i < result.Count-1; i++)
-        //    {
-        //        Assert.IsTrue(result[i] < result[i + 1]);
-        //    }
+            for (int i = 0; i < result.Count - 1; i++)
+            {
+                Assert.IsTrue(result[i] < result[i + 1]);
+            }
 
-        //}
+        }
 
         /// <summary>
         /// Test pas obligatoire mais essayez un peu quand même. N'hésitez pas à me demander de l'aide
@@ -227,4 +227,3 @@ using System.Threading.Tasks;
 
     }
 }
-*/

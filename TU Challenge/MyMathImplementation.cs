@@ -54,7 +54,7 @@ namespace TU_Challenge
 
         public static bool IsInOrder(int a, int b)
         {
-            if(a > b)
+            if(a <= b)
             {
                 return true;
             }
@@ -72,18 +72,11 @@ namespace TU_Challenge
 
         public static bool IsListInOrder(List<int> list)
         {
-            int check = list[0];
-            foreach(int i in list) 
-            { 
-                if (i != check)
-                {
-                    if(!IsInOrder(i, check))
-                    {
-                        check = i;
-                        return false;
-                    }
-                }
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i] > list[i + 1]) return false;
             }
+
             return true;
         }
 
@@ -110,17 +103,60 @@ namespace TU_Challenge
 
         public static int Power(int a, int b)
         {
-            return a**b;
+            int result = a;
+            for(int i = 0; i < b-1; i++)
+            {
+                result = result * a;
+            }
+            return result;
         }
 
         public static int Power2(int a)
         {
-            return (int)Math.Pow(a, 2);
+            int result = a;
+            result = result * a;
+            return result;
         }
 
-        public static object Sort(List<int> toSort)
+        public static List<int> Sort(List<int> toSort)
         {
-            throw new NotImplementedException();
+            int maxValue, lowerValue;
+            List<int> sortedList = new();
+
+            if (toSort[0] > toSort[1])
+            {
+                maxValue = toSort[0];
+                lowerValue = toSort[1];
+            }
+            else
+            {
+                maxValue = toSort[1];
+                lowerValue = toSort[0];
+            }
+
+            sortedList.Add(lowerValue);
+            sortedList.Add(maxValue);
+
+            for (int i = 2; i < toSort.Count - 1; i++)
+            {
+                if (toSort[i] < lowerValue)
+                {
+                    lowerValue = toSort[i];
+                    sortedList.Insert(0, toSort[i]);
+                }
+                else if (toSort[i] < maxValue && toSort[i] > lowerValue)
+                {
+                    sortedList.Insert(sortedList.Count - 1, toSort[i]);
+                }
+                else
+                {
+                    maxValue = toSort[i];
+                    sortedList.Add(toSort[i]);
+                }
+            }
+
+            return sortedList;
+
         }
     }
 }
